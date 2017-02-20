@@ -333,3 +333,14 @@ th {
   background-image: linear-gradient(to top, #029edf, #00ace7);
   color: white !important;
 }
+
+.header .links {
+  position: absolute;
+  display: block;
+  top: 3vw;
+  margin-left: 17vw;
+}
+.header .links a {
+  color: rgba(255, 255, 255, 0.78);
+  padding: 30px;
+}
