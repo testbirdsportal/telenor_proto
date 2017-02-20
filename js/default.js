@@ -1,6 +1,7 @@
 $(function(){
 	futamido();
 	kivalasztas();
+	kivalasztott_modositas();
 });
 
 //futamidő változtatás
@@ -18,6 +19,22 @@ function futamido(){
 			}
 		})
 	});
+}
+
+//ha módosítjuk a felsőt, akkor minden más is módosuljon
+function kivalasztott_modositas(){
+	$('select.kivalasztott').change(function(){
+		console.log('hajrá');
+		var value = $(this).val();
+		$('select[name="futamido"]').each(function(){
+			var max_ertek = $(this).find('option:last').val();
+			if(parseInt(value) <= parseInt(max_ertek)){
+			    $(this).val(value);
+			    var ar = $(this).find('option:selected').data('reszlet');
+			    $(this).closest('td.tr').find('.torlesztoreszlet').html(ar);
+			}
+		})
+	})
 }
 
 function kivalasztas(){
